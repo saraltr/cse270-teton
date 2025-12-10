@@ -22,7 +22,7 @@ class TestSmokeTest():
     self.driver.quit()
   
   def test_logoHeaderandTitle(self):
-    self.driver.get("https://saraltr.github.io/cse270-teton/index.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(626, 752)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
@@ -31,7 +31,7 @@ class TestSmokeTest():
     assert self.driver.title == "Teton Idaho CoC"
   
   def test_adminPage(self):
-    self.driver.get("https://saraltr.github.io/cse270-teton/admin.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
     self.driver.set_window_size(626, 752)
     self.driver.find_element(By.ID, "username").click()
     elements = self.driver.find_elements(By.ID, "username")
@@ -43,7 +43,7 @@ class TestSmokeTest():
     assert self.driver.find_element(By.CSS_SELECTOR, ".errorMessage").text == "Invalid username and password."
   
   def test_directoryPage(self):
-    self.driver.get("https://saraltr.github.io/cse270-teton/directory.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/directory.html")
     self.driver.set_window_size(1550, 830)
     self.driver.find_element(By.ID, "directory-grid").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").text == "Teton Turf and Tree"
@@ -51,7 +51,7 @@ class TestSmokeTest():
     assert self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").text == "Teton Turf and Tree"
   
   def test_homePageSpotlightsandJoinFeature(self):
-    self.driver.get("https://saraltr.github.io/cse270-teton/index.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1600, 1000)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight1 > h4")
     assert len(elements) > 0
@@ -80,7 +80,7 @@ class TestSmokeTest():
     assert "join.html" in self.driver.current_url
   
   def test_joinPage(self):
-    self.driver.get("https://saraltr.github.io/cse270-teton/join.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/join.html")
     self.driver.set_window_size(1037, 822)
     self.driver.find_element(By.NAME, "fname").click()
     self.driver.find_element(By.NAME, "fname").send_keys("Sara")
